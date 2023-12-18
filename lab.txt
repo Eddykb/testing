@@ -3,28 +3,22 @@
 #include <iomanip>
 #include<cmath>
 #include <fstream>
-using namespace std;
-void main()
+using namespace std
 {
     setlocale(LC_ALL, "Russian");
-    cout << "Автор: , гр. 3352\nВерсия: 3.1.1\nНачало: 10.10\nЗадание: (cos(n*x)/3^n)*x^n \n";
-    float x, eps, s, u, n, arg, q1, q2;
-    int k;
-    fstream f;
-    f.open("Lab3.txt", ios::out);
+    cout << "Аout);
     eps = 0;
-    k = 0;
     //Ввод eps
-    while (((0 >= eps) || (eps > 1e-10)) && (k < 3))
+    whi(0 >= eps) || (eps > 1e-10)) && (k < 3))
     {
         cout << "Введите eps (0, 1e-10): ";
         cin >> eps;
-        if ((eps <= 0) || (eps > 1e-10))
+
         {
             cout << "Не то значение eps!\n";
             k++;
-        }
-        else if ((k == 3) && ((0 >= eps) || (eps > 1e-10)))
+        
+        else if ((k == 3hh) && ((0 >= eps) || (eps > 1e-10)))
         {
             cout << "Три попытки неудачны...";
         }
