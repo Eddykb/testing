@@ -1,0 +1,411 @@
+
+#include<cmath>
+#include <fstream>
+using namespace std;
+void main(    setlocale(LC_ALL, "Russian");
+    cout << ;/;ll.l..."Автор: , гр. 3352\nВерсия: 3.1.1\nНачало: 10.10\nЗадание: (cos(n*x)/3^n)*x^n \n";
+    float x, eps, s, u, n, arg, q1, q2;
+
+    //Ввод eps
+    while (((0 >= eps) || (eps > 1e-10)) && (k < 3))
+    {
+        cout << "Введите eps (0, 1e-10): ";
+        cin >> eps;
+        if ((eps <= 0) || (eps > 1e-10))
+        {
+            cout << "Не то значение eps!\n";
+            k++;
+        }
+        else if ((k == 3) && ((0 >= eps) || (eps > 1e-10)))
+        {
+            cout << "Три попытки неудачны...";
+        }
+        //Начало программы
+        else
+        {
+            n = 1; u = 1; s = 0;
+            cout << "Введите x: "; cin >> x;
+            q1 = 3; q2 = x; //коэффициенты перехода
+            cout << "     n|" << "      Un       |" << "      Sn       |\n";//6-15-15
+
+            while (fabs(u) >= eps && (n < 1000))
+            {
+                arg = x*n;
+                u = (cos(arg)/q1) * q2;//Формула
+
+                s += u;
+                cout << setw(6) << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n << "|" << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << u << "|";
+                cout << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << s << "|\n";
+
+                q1 = q1 * 3; //применение коэффициента перехода
+                q2 = q2 * x; //применение коэффициента перехода
+                f << setw(6) << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n << "|" << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << u << "|";
+                f << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << s << "|\n";
+                n++;
+            }
+            cout << "Было произведено " << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n - 1 << " итераций.";
+            f << "Was " << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n - 1 << " step.";
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include<cmath>
+#include <fstream>
+using namespace std;
+void main()
+{
+    setlocale(LC_ALL, "Russian");
+    cout << "Автор: Фомченко Эдуард Юрьевич, гр. 3352\nВерсия: 3.1.1\nНачало: 10.10\nЗадание (64): (cos(n*x)/3^n)*x^n \n";
+    float x, eps, s, u, arg, q1, q2;
+    int k, n;
+    fstream f;
+    f.open("Lab3.txt", ios::out);
+    eps = 0;
+    k = 0;
+    //Ввод eps
+    do
+    {
+        cout << "Введите eps (0, 1e-10): ";
+        cin >> eps;
+        if (eps > 0 && eps < 1e-10) break;
+        {
+            cout << "Не то значение eps! Пожалуйста, введите подходящее значение. \n";
+            k += 1; }
+    } while (k < 3);
+    if (k >= 3)
+        cout << "Три попытки неудачны... Превышен лимит попыток.";
+    //Начало программы
+    else
+    {
+        n = 1; u = 1; s = 0;
+        cout << "Введите x: "; cin >> x;
+        q1 = 3; q2 = x; //коэффициенты перехода
+        cout << "     n|" << "      Un       |" << "      Sn       |\n";//6-15-15
+
+        while (fabs(u) >= eps && (n < 1000))
+        {
+            arg = x * n;
+            u = (cos(arg) / q1) * q2;//Формула
+
+            s += u;
+            cout << setw(6) << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n << "|" << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << u << "|";
+            cout << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << s << "|\n";
+
+            q1 = q1 * 3; //применение коэффициента перехода
+            q2 = q2 * x; //применение коэффициента перехода
+            f << setw(6) << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n << "|" << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << u << "|";
+            f << setiosflags(ios::showpos) << setiosflags(ios::showpoint) << setw(15) << setiosflags(ios::scientific) << setprecision(6) << s << "|\n";
+            n++;
+        }
+        cout << "Было произведено " << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n - 1 << " итераций.";
+        f << "Was " << resetiosflags(ios::showpoint) << resetiosflags(ios::scientific) << resetiosflags(ios::showpos) << n - 1 << " step.";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <locale.h>
+#include <cmath>
+using namespace std;
+
+/*
+  a - больший радиус
+  b = |a/2| - меньший радиус
+  s - отражение графика по оси X
+  m - отражение графика по оси Y
+  Что бы снизу - меняется знак перед корнем
+  Что бы сверху отзеркален - ставим '-' меняется -a -x
+  Что бы снизу отзеркален - меняется знак перед корнем и -a -x
+  Если два числа отрицательные, то график отражаем
+
+*/
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	float a = -1.9e+15, b, x = 1.9e+15, s = 0, m = 0, x1, y;
+	int z;
+	cout << "+------------------------------------------+                                     " << endl;
+	cout << "| ^Y                                       |  Фомченко Эдуард Юрьевич гр. 3352   " << endl;
+	cout << "| |                                        |  Задание 3: Рисунок 8               " << endl;
+	cout << "| |        00                              |  Начало: 23.09.2023                 " << endl;
+	cout << "| |    0        0                          |                                     " << endl;
+	cout << "| |  0            0                        |                                     " << endl;
+	cout << "| | 0              0    00                 |" << endl;
+	cout << "| |0                00      0              |                                     " << endl;
+	cout << "| +0----------------0--------0000000000->X |  Ограничения: " << endl;
+	cout << "| |                                        |  a = [-1.8e+15; 1.8e+15]" << endl;
+	cout << "| |                                        |  x = [-1.8e+15; 1.8e+15]" << endl;
+	cout << "| |                                        |                                     " << endl;
+	cout << "+------------------------------------------+                                     " << endl << endl;
+
+	cout << "|  Введите радиус а:  ";
+	while (a < -1.8e+15 || a > 1.8e+15) {
+		cin >> a;
+		if (a < -1.8e+15 || a > 1.8e+15) {
+			cout << "--------------" << endl;
+			cout << "|      Попробуйте снова:     \n" << "| Введите значение в допустимых пределах: ";
+		}
+	}
+	b = fabs(a);
+	a = 2 * a;
+	cout << "|        Введите Х:  ";
+	while (x < -1.8e+15 || x > 1.8e+15) {
+		cin >> x;
+		if (x < -1.8e+15 || x > 1.8e+15) {
+			cout << "--------------" << endl;
+			cout << "|      Попробуйте снова:     \n" << "| Введите значение в допустимых пределах: ";
+		}
+	}
+
+	cout << "|     Введите s:  ";
+	while (s == 0) {
+		cin >> s;
+		if (s == 0) {
+			cout << "--------------" << endl;
+			cout << "|      Попробуйте снова:     \n" << "| Введите ненулевое значение: ";
+		}
+	}
+	cout << "|     Введите число m:  ";
+	while (m == 0) {
+		cin >> m;
+		if (m == 0) {
+			cout << "--------------" << endl;
+			cout << "|      Попробуйте снова:     \n" << "| Введите ненулевое значение: ";
+		}
+	}
+
+	z = fabs(x / (2 * a));
+
+	x1 = (x - (a * 2 * z));
+
+	if (x1 == 0 || a == 0) {
+		cout << "| Значение Y = 0";
+		return 0;
+	}
+
+	if (s / fabs(s) > 0) {
+		if (m < 0) {
+			a = fabs(a);
+			if (x1 < 0) {
+				a = fabs(a);
+				x1 += a * 2;
+			}
+			if (x1 > 0 && x1 < b) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 == b) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > b && x1 < a) {
+				y = sqrt(fabs(pow((b / 2), 2) - pow(fabs((b / 2) + b - x1), 2)));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == a) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if /*(*/ (x1 > a && x1 < (a + a)) /* || (x1 >(-(a + a + a)) && x1 < (-(a + a))))*/ {
+				y = sqrt(fabs(pow(b, 2) - pow(fabs(b - fabs(a - x1)), 2)));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+		}
+		else {
+			a = fabs(a);
+			if (x1 < 0 && x1 > (-b)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 == (-b)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > (-a) && x1 < (-b)) {
+				y = sqrt(pow((b / 2), 2) - pow(fabs((b / 2) + b - fabs(x1)), 2));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == (-a)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			if (x1 > (-(a + a)) && x1 < (-a)) {
+				y = sqrt(pow(b, 2) - pow(fabs(a + b - fabs(x1)), 2));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			if (x1 > 0 && x1 < a) {
+				y = sqrt(pow(b, 2) - pow(fabs(b - x1), 2));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == a) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > a && x1 < (a + b)) {
+				y = sqrt(pow((b / 2), 2) - pow(fabs((b / 2) + a - x1), 2));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == (b + a)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+		}
+	}
+	else {
+		if (m < 0) {
+			a = fabs(a);
+			if (x1 < 0) {
+				a = fabs(a);
+				x1 += a * 2;
+			}
+			/*
+		if (x1 < 0 && a < 0) {
+			a = fabs(a);
+			x1 += a * 2;
+			cout << x1 << '|' << a << endl;
+			*/
+			if (x1 > 0 && x1 < b) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 == b) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > b && x1 < a) {
+				y = -(sqrt(fabs(pow((b / 2), 2) - pow(fabs((b / 2) - (a - x1)), 2))));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == a) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > a && x1 < (a + a)) {
+				y = -(sqrt(fabs(pow(b, 2) - pow(fabs(b - fabs(a - x1)), 2))));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+		}
+		else {
+			a = fabs(a);
+			if (x1 < 0 && x1 > (-b)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 == (-b)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > (-a) && x1 < (-b)) {
+				y = -(sqrt(pow((b / 2), 2) - pow(fabs((b / 2) + b - fabs(x1)), 2)));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == (-a)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			if (x1 > (-(a + a)) && x1 < (-a)) {
+				y = -(sqrt(pow(b, 2) - pow(fabs(a + b - fabs(x1)), 2)));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			if (x1 > 0 && x1 < a) {
+				y = -(sqrt(fabs(pow(b, 2) - pow(fabs(b - x1), 2))));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == a) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else if (x1 > a && x1 < (a + b)) {
+				y = -(sqrt(fabs(pow((b / 2), 2) - pow(fabs((b / 2) + a - x1), 2))));
+				cout << "| Значение Y = " << y;
+				return 0;
+			}
+			else if (x1 == (b + a)) {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+			else {
+				cout << "| Значение Y = 0";
+				return 0;
+			}
+		}
+	}
+}
